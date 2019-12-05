@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Endless Alert Game</title>
+		<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
+		<!-- 弹出层js -->
+		<script src="option.js" type="text/javascript" charset="utf-8"></script>
+		<!-- 弹出层jcss-->
+		<link rel="stylesheet" type="text/css" href="allf.css" />
+		<!-- 动画css -->
+		<!-- 	<link rel="stylesheet" type="text/css" href="animate.css" /> -->
+		<style>
+			body{
+     background-color:#0F0002;
+	 font-family:Tahoma;
+	 }
+	 ::-webkit-scrollbar-track-piece {
+	 	//滚动条凹槽的颜色，还可以设置边框属性
+	 	background-color: #f8f8f8;
+	 }
+	 ::-webkit-scrollbar {
+	 	//滚动条的宽度
+	 	width:4px !important;
+	 	height:4px !important;
+	 	background: #CCCCCC !important;
+	 	opacity: 1;
+	 	border-radius: 4px !important;
+	 }
+	 ::-webkit-scrollbar-thumb {
+	 	//滚动条的设置
+	 	background-color: #CCCCCC !important;
+	 	background-clip: padding-box;
+	 	border-radius: 4px !important;
+	 }
+	 ::-webkit-scrollbar-thumb:hover {
+	 	background-color: #CCCCCC !important;
+	 }
+	 
+#affiche {
+	padding:0;
+    display: block;
+    width: 96%;
+    height:60px;
+    position: relative;
+    overflow: hidden;
+}
+
+.affiche_text {
+    text-align: center;
+    z-index:0;
+    position: absolute;
+    top: 10px;
+    left: 100%;
+    line-height: 10px;
+    display: block;
+    word-break: keep-all;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+	font-weight:bold;
+	letter-spacing:5px;
+	animation: mymove 5s infinite;
+	-webkit-animation: mymove 5s infinite;
+	/*Safari and Chrome*/
+	animation-direction: alternate;
+	/*轮流反向播放动画。*/
+	animation-timing-function: ease-in-out;
+	/*动画的速度曲线*/
+	/* Safari 和 Chrome */
+	-webkit-animation: mymove 5s infinite;
+	-webkit-animation-direction: alternate;
+	/*轮流反向播放动画。*/
+	-webkit-animation-timing-function: ease-in-out;
+	/*动画的速度曲线*/
+/* 	transform:rotate(0deg) skew(0deg) scale(1);
+	-ms-transform:rotate(0deg) skew(0deg) scale(1);    
+	-moz-transform:rotate(0deg) skew(0deg) scale(1);     
+	 -webkit-transform:rotate(0deg) skew(0deg) scale(1); 
+	-o-transform:rotate(0deg) skew(0deg) scale(1); 
+	animation: rotate 10s linear infinite;
+	-webkit-animation:rotate 10s linear infinite;
+	-moz-animation:rotate 10s linear infinite;
+	-o-animation:rotate 10s linear infinite; */
+} 
+/* 字体放大缩小样式 */
+ @keyframes mymove {
+	0% {
+	  transform: scale(1);
+	  /*开始为原始大小*/
+	}
+
+	25% {
+	  transform: scale(1.2);
+	  /*放大1.1倍*/
+	}
+
+	50% {
+	  transform: scale(1.5);
+	}
+
+	75% {
+	  transform: scale(1.1);
+	}
+
+  }
+ 
+  @-webkit-keyframes mymove
+  /*Safari and Chrome*/
+	{
+	0% {
+	  transform: scale(1);
+	  /*开始为原始大小*/
+	}
+
+	25% {
+	  transform: scale(1.2);
+	  /*放大1.1倍*/
+	}
+
+	50% {
+	  transform: scale(1.5);
+	}
+
+	75% {
+	  transform: scale(1.1);
+	}
+  }
+
+ @keyframes rotate{
+	 0%{
+		 transform:rotate(0deg) skew(0deg) scale(1);
+		 -ms-transform:rotate(0deg) skew(0deg) scale(1);     /* IE 9 */
+		 -moz-transform:rotate(0deg) skew(0deg) scale(1);     /* Firefox */
+		 -webkit-transform:rotate(0deg) skew(0deg) scale(1); /* Safari ºÍ Chrome */
+		 -o-transform:rotate(0deg) skew(0deg) scale(1); 
+	 }
+	 100%{
+		 transform:rotate(360deg) skew(0deg) scale(1);
+		 -ms-transform:rotate(360deg) skew(0deg) scale(1);     /* IE 9 */
+		 -moz-transform:rotate(360deg) skew(0deg) scale(1);     /* Firefox */
+		 -webkit-transform:rotate(360deg) skew(0deg) scale(1); /* Safari ºÍ Chrome */
+		 -o-transform:rotate(360deg) skew(0deg) scale(1); 
+	 }
+ }
+ 
+#background {
+    z-index:1;
+	display: none;
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,0.5);
+}
+#background1 {
+    z-index:2;
+	display: none;
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,0.5);
+}
+
+#div1 {
+	background:#FDFFEB;
+	width: 50%;
+	z-index: 1;
+	height:47%;
+	margin: 12% auto;
+	overflow: auto;
+	border-radius:5%;
+}
+ 
+span {
+	color: white;
+	padding-top: 12px;
+	cursor: pointer;
+	padding-right: 15px;
+}
+ 
+#div2 {
+	background:#FDFFEB;
+	margin: auto;
+	height: 200px;
+	padding: 0 30px;
+}
+ 
+#close {
+	padding: 5px;
+	background: #FDFFEB;
+}
+ 
+ 
+#foot{
+  padding:10 0px;
+  height:50px;
+  }
+.btnlike1{
+   border-radius:25%;
+   padding:20px 40px;
+   font-size:30px;
+   color: white;
+   background-color:#2794C7;
+  /* margin-left:350px; */
+}
+.btnlike{
+   border-radius:25%;
+   padding:20px 40px;
+   color: white;
+   font-size:18px;
+   background-color:#F8293F;
+}
+.btnexit{
+   border-radius:25%;
+   padding:20px 40px;
+   margin-left:100px;
+   color: white;
+   font-size:18px;
+   background-color:#3CD327;
+
+}
+h2 {
+	margin: 0;
+	color: #000000;
+	padding-top: 10px;
+	padding-left: 15px;
+	text-align: center;
+}
+ 
+h3 {
+	padding-top: 40px;
+	text-align: center;
+	color:#000000;
+}
+#p2{
+padding:0 40px;
+font-size:18px;
+font-weight:bold;
+}
+#sp{
+margin-top:200px;
+padding:0 35px;
+font-size:18px;
+font-weight:bold;
+}
+.baseInput{
+	-webkit-appearance: none;
+	background-color: #fff;
+	background-image: none;
+	border-radius: 4px;
+	border: 1px solid #dcdfe6;
+	box-sizing: border-box;
+	color: #606266;
+	display: inline-block;
+	font-size: inherit;
+	height: 40px;
+	line-height: 40px;
+	outline: none;
+	padding: 0 15px;
+	transition: border-color .2s cubic-bezier(.645,.045,.355,1);
+}
+.headerText{
+	color:white;
+	text-align:center;
+	position:fixed;
+	top:0;
+	right:0;
+	padding-right:20px;
+	font-size:28px;
+	width:100%;
+	z-index:200;
+}
+.headerText .span :hover{
+	text-decoration:underline;
+	 border-bottom:  2px solid #fff;
+	 cursor:pointer;
+}
+
+
+
+ 
+
+</style>
+	</head>
+	<body>
+		<div id="somedialog" class="dialog">
+			<div class="dialog__overlay"></div>
+			<div class="dialog__content" style="width:80%;">
+				<div>
+					<iframe id="iframepage" width="100%" height="500px" frameborder='no' scrolling="yes" allowtransparency="yes"></iframe>
+				</div>
+				<div><button class="action btnlike1" data-dialog-close>Close</button></div>
+			</div>
+		</div>
+		<div id="open_btn"></button>
+			<div id="background" class="back">
+				<div id="div1" class="content">
+					<div id="close">
+						<h2>Alert</h2>
+					</div>
+					<div id="div2">
+						<h3>name&nbsp;&nbsp;
+							<input id="name" type="text" name="fname" class="baseInput"><br></h3>
+						<div id="close">
+							<h2>Welcome to the Endless Alert Game. Please Insert your account name to begin.</h2>
+						</div>
+						<!-- <h3>password
+							<input type="text" name="fname"><br></h3> -->
+					</div>
+					<div id="foot" style="text-align:center;margin-top:50px;">
+						<button id="open_btn1" class="btnlike1">enter</button>
+					</div>
+				</div>
+			</div>
+			<div id="background1" class="back">
+				<div id="div1" class="content">
+					<div id="close">
+						<h2>Endless Alert Game</h2>
+					</div>
+					<div id="div2">
+						<p id="p2">Hi, . If you see this page, the endless alert web server is successfully installed and working. Feel
+							free to see more content by pressing “LIKE”. You also have all the right to quit the website by simply click
+							“EXIT” button at any time.
+							Like or exit button <p>
+								<p id="sp"></p>
+					</div>
+					<h3 id="foot"><button onclick="textModify()" class="btnlike">like</button><button onclick="exit()" class="btnexit">exit</button></h3>
+				</div>
+			</div>
+			<!--  -->
+			<div class="headerText"><span>点击鼠标试试</span></div>
+			<div id="affiche" style="margin-top: 20px">
+				<div class="affiche_text">
+					<div style="margin-left:-100px; color:#36E719; font-size:28px;">Trending Now</div>
+				</div>
+			</div>
+			<div id="affiche" style="margin-top: 10px;">
+				<div class="affiche_text">
+					<div style="margin-left:-200px; color: #C70039; font-size:24px;">高以翔爸爸摔倒</div>
+				</div>
+			</div>
+			<div id="affiche" style="margin-top: 12px">
+				<div class="affiche_text">
+					<div style="margin-left:5px;color:#d0d3cc font-size:12px;">
+						<p>Black Widow</p>
+					</div>
+				</div>
+			</div>
+			<div id="affiche" style="margin-top: 2px">
+				<div class="affiche_text">
+					<div style="margin-left:34px;color: #7fc7f5; font-size:18px;">
+						<p>World News | Amazon removes ‘Auschwitz Christmas ornaments’ from sale</p>
+					</div>
+				</div>
+			</div>
+			<div id="affiche" style="margin-top: 15px;">
+				<div class="affiche_text">
+					<div style="margin-left:30px; color:#FFC300; font-size:15px;">全球烤冷面大赛</div>
+				</div>
+			</div>
+			<div id="affiche" style="margin-top: 15px;">
+				<div class="affiche_text">
+					<div style="margin-left:30px;  color: #C70039; font-size:30px;">热搜</div>
+				</div>
+			</div>
+			<div id="affiche" style="margin-top: 5px">
+				<div class="affiche_text">
+					<div style="margin-left:170px; color:#d0d3cc; font-size:18px;">Apple</div>
+				</div>
+			</div>
+			<div id="affiche" style="margin-top: 3px; ">
+				<div class="affiche_text">
+					<div style="margin-left:50px; color:#19E7CA; font-size:9px;">朱丹为口误道歉</div>
+				</div>
+			</div>
+			<div id="affiche" style="margin-top: 2px">
+				<div class="affiche_text">
+					<div style="margin-left:100px; color: #FF5733; font-size:15px;">Raptors</div>
+				</div>
+			</div>
+			<div id="affiche" style="margin-top: 19px">
+				<div class="affiche_text">
+					<div style="margin-left:10px; color: #7fc7f5; font-size:12px;">Garth Books</div>
+				</div>
+			</div>
+			<div id="affiche" style="margin-top: 2px">
+				<div class="affiche_text">
+					<div style="margin-left:10px; color:#FFC300; font-size:30px;">Football | Lionel Messi wins his record sixth
+						Ballon
+						d’or award</div>
+				</div>
+			</div>
+			<div id="affiche" style="margin-top: 3px">
+				<div class="affiche_text">
+					<div style="margin-left:-320px; color: #C70039; font-size:18px;">赵丽颖张慧雯斗舞</div>
+				</div>
+			</div>
+			<div id="affiche" style="margin-top: 2px">
+				<div class="affiche_text">
+					<div style="margin-left:-60px;color: #7fc7f5; font-size:24px;">二十问浙江卫视</div>
+				</div>
+			</div>
+			<div id="affiche" style="margin-top: 14px">
+				<div class="affiche_text">
+					<div style="margin-left:200px; color: #36e719; font-size:15px;">Amazing | A doggo or a wolf? Scientists present
+						18,000-year-old prehistoric puppy</div>
+				</div>
+			</div>
+			<div id="affiche" style="margin-top: 10px">
+				<div class="affiche_text">
+					<div style="margin-left:70px;color: #C70039; font-size:14px;">Seahawks</div>
+				</div>
+			</div>
+
+			<div id="affiche" style="margin-top: 2px">
+				<div class="affiche_text">
+					<div style="margin-left:-300px; color:#FFC300; font-size:18px;">Celebrity | BTS Army celebrates Jin’s 27th
+						birthday</div>
+				</div>
+			</div>
+			<div id="affiche" style="margin-top: 2px;">
+				<div class="affiche_text">
+					<div style="margin-left:60px; color: #36e719; font-size:24px;">猪肉价格又降价了</div>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript">
+			(function() {
+				var timer = setTimeout(this.marquee, 40);
+			}());
+
+			function marquee() { //左侧过渡到右侧动画
+				var scrollWidth = $('#affiche').width();
+				var textWidth = $('.affiche_text').width();
+				var i = scrollWidth;
+				setInterval(function() {
+					i--;
+					if (i < -textWidth) {
+						i = scrollWidth;
+					}
+					$('.affiche_text').animate({
+						'left': i + 'px'
+					}, 1);
+				}, 0.5);
+			}
+
+			var btn = document.getElementById('open_btn');
+			var btn1 = document.getElementById('open_btn1');
+			var div = document.getElementById('background');
+			var div1 = document.getElementById('background1');
+			var close = document.getElementById('close-button');
+			var like = document.getElementById('like-btn');
+			var p1 = document.getElementById('p1');
+
+			btn.onclick = function show() { //弹出层输入name框样式触发显示
+				div.style.display = "block";
+			}
+			btn1.onclick = function show1() { //弹出层输入name框样式enter触发
+				div1.style.display = "block";
+				var y = document.getElementById("name").value;
+				document.getElementById("p2").innerHTML = "Hi," + y +
+					". If you see this page, the endless alert web server is successfully installed and working. Feel free to see more content by pressing “LIKE”. You also have all the right to quit the website by simply click “EXIT” button at any time. Like or exit button;";
+			}
+			window.onclick = function close(e) { //点击空白处隐藏弹出层样式
+				if (e.target == div) {
+					div.style.display = "none";
+				}
+			}
+			var count = 0;
+			var x = 6;
+
+			function textModify() { //弹出层like按钮触发函数
+				var obj = document.getElementById("p2");
+				var number = Math.floor(Math.random() * 15);
+				var news = ["Power need not take the form of coercion.", "The greater power is, the more quietly it works.",
+					"Today, power is assuming increasingly permissive forms.",
+					"Power is shedding its negativity and presenting itself as freedom.", "IT escapes all visibility.",
+					"Ultimate power is hiding", "Power is smart", "News", "A Celebrity broke up with other celebrity",
+					"A Celebrity released an new album", "Fun",
+					"Instagram feeds", "What’s trending", "Breaking News: Serious water leakage during Winter of xxxx in Toronto."
+				];
+				obj.innerText = news[number];
+				count = count + 1;
+			}
+
+			var t1 = null;
+
+			function exit() { //弹出层Endless Alert Game;exit按钮效果触发
+				var obj = document.getElementById("p2");
+				obj.innerText = "you click like" + count + "times";
+				// setInterval(go, 1000);
+				// t1=window.setInterval(go, 1000);
+				doLoop(6)
+			}
+
+			function doLoop(seconds) { //获取验证码可以自定义跳转倒计时
+				seconds = seconds ? seconds : 6;
+				let countdown = setInterval(() => {
+					if (seconds > 0) {
+						document.getElementById("sp").innerHTML = "you will leave in" + seconds + "s";
+						--seconds;
+					} else {
+						/* num随机数根据web数量-1取下标 */
+						var number = Math.floor(Math.random() * 2);
+						var web = ["http://www.baidu.com", "http://www.baidu.com",
+							"http://www.baidu.com"
+						];
+						console.log("web", web)
+						document.getElementById('iframepage').src = web[number];
+						div1.style.display = "none";
+						div.style.display = "none";
+						setTimeout(function() {
+							$(this).DialogShow({ //ifram弹出层显示'dialogFx': '1',为显示,'dialogFx': '0'隐藏
+								'id': 'somedialog', //传入id，可以控制样式	
+								'dialogFx': '1',
+								//传入显示和隐藏的参数	
+							});
+						}, 500);
+						clearInterval(countdown);
+					}
+				}, 1000);
+			}
+
+			$(".action").click(function() { //ifram弹出层关闭
+				// debugger
+				$(this).DialogShow({
+					'id': 'somedialog',
+					'dialogFx': '0',
+				});
+			});
+		</script>
+	</body>
+</html>

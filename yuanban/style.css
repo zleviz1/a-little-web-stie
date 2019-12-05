@@ -1,0 +1,133 @@
+
+body{
+     background-color:#0F0002;
+	 font-family:Tahoma;
+	 }
+#affiche {
+	padding:0;
+    display: block;
+    width: 96%;
+    height: 40px;
+    position: relative;
+    overflow: hidden;
+}
+
+.affiche_text {
+    text-align: center;
+    z-index:0;
+    position: absolute;
+    top: 10px;
+    left: 100%;
+    line-height: 10px;
+    display: block;
+    word-break: keep-all;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+	font-weight:bold;
+}
+
+ 
+#background {
+    z-index:1;
+	display: none;
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,0.5);
+}
+#background1 {
+    z-index:2;
+	display: none;
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,0.5);
+}
+
+#div1 {
+	background:#FDFFEB;
+	width: 50%;
+	z-index: 1;
+	height:47%;
+	margin: 12% auto;
+	overflow: auto;
+	border-radius:5%;
+}
+ 
+span {
+	color: white;
+	padding-top: 12px;
+	cursor: pointer;
+	padding-right: 15px;
+}
+ 
+#div2 {
+	background:#FDFFEB;
+	margin: auto;
+	height: 200px;
+	padding: 0 30px;
+}
+ 
+#close {
+	padding: 5px;
+	background: #FDFFEB;
+}
+ 
+ 
+#foot{
+  padding:10 0px;
+  height:50px;
+  }
+.btnlike1{
+   border-radius:25%;
+   padding:20px 40px;
+   font-size:30px;
+   color: white;
+   background-color:#2794C7;
+   margin-left:350px;
+}
+.btnlike{
+   border-radius:25%;
+   padding:20px 40px;
+   color: white;
+   font-size:18px;
+   background-color:#F8293F;
+}
+.btnexit{
+   border-radius:25%;
+   padding:20px 40px;
+   margin-left:100px;
+   color: white;
+   font-size:18px;
+   background-color:#3CD327;
+
+}
+h2 {
+	margin: 0;
+	color: #000000;
+	padding-top: 10px;
+	padding-left: 15px;
+	text-align: center;
+}
+ 
+h3 {
+	padding-top: 40px;
+	text-align: center;
+	color:#000000;
+}
+#p2{
+padding:0 40px;
+font-size:18px;
+font-weight:bold;
+}
+#sp{
+margin-top:200px;
+padding:0 35px;
+font-size:18px;
+font-weight:bold;
+}
+

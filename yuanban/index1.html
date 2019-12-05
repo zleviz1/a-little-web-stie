@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Endless Alert Game</title>
+
+	<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+	<div id="open_btn"></button>
+		<div id="background" class="back">
+			<div id="div1" class="content">
+				<div id="close">
+					<h2>Welcome to the Endless Alert Game. Please Insert your account name to begin.</h2>
+				</div>
+				<div id="div2">
+					<h3>name
+						<input id="name" type="text" name="fname"><br></h3>
+					<h3>password
+						<input type="text" name="fname"><br></h3>
+				</div>
+				<div id="foot">
+					<button id="open_btn1" class="btnlike1">enter</button>
+				</div>
+			</div>
+		</div>
+		<div id="background1" class="back">
+			<div id="div1" class="content">
+				<div id="close">
+					<h2>Endless Alert Game</h2>
+				</div>
+				<div id="div2">
+					<p id="p2">Hi, . If you see this page, the endless alert web server is successfully installed and
+						working. Feel free to see more content by pressing “LIKE”. You also have all the right to quit
+						the website by simply click “EXIT” button at any time.
+						Like or exit button <p>
+					<p id="sp"></p>
+				</div>
+				<h3 id="foot"><button onclick="textModify()" class="btnlike">like</button><button onclick="exit()"
+						class="btnexit">exit</button></h3>
+			</div>
+		</div>
+
+		<div id="affiche" style="margin-top: 20px">
+			<div class="affiche_text">
+				<div style="margin-left:-100px; color:#36E719; font-size:26px;">Trending Now</div>
+			</div>
+		</div>
+		<div id="affiche" style="margin-top: 10px;">
+			<div class="affiche_text">
+				<div style="margin-left:-200px; color: #C70039; font-size:24px;">高以翔爸爸摔倒</div>
+			</div>
+		</div>
+		<div id="affiche" style="margin-top: 12px">
+			<div class="affiche_text">
+				<div style="margin-left:5px;color:#d0d3cc font-size:12px;">
+					<p>Black Widow</p>
+				</div>
+			</div>
+		</div>
+		<div id="affiche" style="margin-top: 2px">
+			<div class="affiche_text">
+				<div style="margin-left:34px;color: #7fc7f5; font-size:18px;">
+					<p>World News | Amazon removes ‘Auschwitz Christmas ornaments’ from sale</p>
+				</div>
+			</div>
+		</div>
+		<div id="affiche" style="margin-top: 15px;">
+			<div class="affiche_text">
+				<div style="margin-left:30px; color:#FFC300; font-size:15px;">全球烤冷面大赛</div>
+			</div>
+		</div>
+		<div id="affiche" style="margin-top: 15px;">
+			<div class="affiche_text">
+				<div style="margin-left:30px;  color: #C70039; font-size:30px;">热搜</div>
+			</div>
+		</div>
+		<div id="affiche" style="margin-top: 5px">
+			<div class="affiche_text">
+				<div style="margin-left:170px; color:#d0d3cc; font-size:18px;">Apple</div>
+			</div>
+		</div>
+		<div id="affiche" style="margin-top: 3px; ">
+			<div class="affiche_text">
+				<div style="margin-left:50px; color:#19E7CA; font-size:9px;">朱丹为口误道歉</div>
+			</div>
+		</div>
+		<div id="affiche" style="margin-top: 2px">
+			<div class="affiche_text">
+				<div style="margin-left:100px; color: #FF5733; font-size:15px;">Raptors</div>
+			</div>
+		</div>
+		<div id="affiche" style="margin-top: 19px">
+			<div class="affiche_text">
+				<div style="margin-left:10px; color: #7fc7f5; font-size:12px;">Garth Books</div>
+			</div>
+		</div>
+		<div id="affiche" style="margin-top: 2px">
+			<div class="affiche_text">
+				<div style="margin-left:10px; color:#FFC300; font-size:30px;">Football | Lionel Messi wins his record
+					sixth Ballon d’or award</div>
+			</div>
+		</div>
+		<div id="affiche" style="margin-top: 3px">
+			<div class="affiche_text">
+				<div style="margin-left:-320px; color: #C70039; font-size:18px;">赵丽颖张慧雯斗舞</div>
+			</div>
+		</div>
+		<div id="affiche" style="margin-top: 2px">
+			<div class="affiche_text">
+				<div style="margin-left:-60px;color: #7fc7f5; font-size:24px;">二十问浙江卫视</div>
+			</div>
+		</div>
+		<div id="affiche" style="margin-top: 14px">
+			<div class="affiche_text">
+				<div style="margin-left:200px; color: #36e719; font-size:15px;">Amazing | A doggo or a wolf? Scientists
+					present 18,000-year-old prehistoric puppy</div>
+			</div>
+		</div>
+		<div id="affiche" style="margin-top: 10px">
+			<div class="affiche_text">
+				<div style="margin-left:70px;color: #C70039; font-size:14px;">Seahawks</div>
+			</div>
+		</div>
+
+		<div id="affiche" style="margin-top: 2px">
+			<div class="affiche_text">
+				<div style="margin-left:-300px; color:#FFC300; font-size:18px;">Celebrity | BTS Army celebrates Jin’s
+					27th birthday</div>
+			</div>
+		</div>
+		<div id="affiche" style="margin-top: 2px;">
+			<div class="affiche_text">
+				<div style="margin-left:60px; color: #36e719; font-size:24px;">猪肉价格又降价了</div>
+			</div>
+		</div>
+	</div>
+	<script src="javascript.js"></script>
+	</script>
+</body>
+
+</html>
